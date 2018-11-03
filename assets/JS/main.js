@@ -12,4 +12,11 @@ var config = {
     storageBucket: "ucb-project-one.appspot.com",
     messagingSenderId: "191816644229"
   };
+
   firebase.initializeApp(config);
+
+  $("#give-review").on("click", function() {
+    $("#front-page").hide();
+    $("#score-page").show();
+  
+  });
