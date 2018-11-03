@@ -1,0 +1,39 @@
+/*FONT BIN
+font-family: 'Roboto Slab', serif;
+font-family: 'Righteous', cursive;
+font-family: 'Crete Round', serif;
+*/
+#navbar {
+    background-color: #ff9021;
+}
+
+#logo-text {
+    font-family: 'Righteous', cursive;
+    font-size: 1.2em;
+}
+
+#search-form {
+    margin-right: 100px;
+}
+
+#hero-image {
+    position: relative;
+}
+
+.hero-text {
+    font-family: 'Roboto Slab', serif;
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    color: white;
+    font-size: 2.2em;
+    transform: translate(-50%, -50%);
+    text-shadow: 4px 4px black;
+    line-height: 1em;
+}
+
+#give-review {
+    background-color: #e25200;
+    color: white;
+    border: #a50000;
+}
