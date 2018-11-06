@@ -24,7 +24,6 @@ body {
 #logo-text {
     font-family: 'Righteous', cursive;
     font-size: 20px;
-    color: 
 }
 
 #search-form {
@@ -52,7 +51,7 @@ body {
 
 
 #score-page {
-    background-color: #d6f1ff;
+    background-color: #eeeeee;
     width: 100%;
     max-width: 900px;
     height: auto;
@@ -81,7 +80,6 @@ th, td {
     padding: 7px;
     border-bottom: 2px solid #ddd;
 }
-=======
 
 /* media queries */
 /* xs < 768 */ 
