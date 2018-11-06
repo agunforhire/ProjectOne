@@ -51,6 +51,38 @@ body {
 }
 
 
+#score-page {
+    background-color: #d6f1ff;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 100px;
+    border: 2px solid #dddddd;
+    padding: 20px 20px 20px 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+table, th, td {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 1.1em;
+    table-layout: fixed;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+th, td {
+    padding: 7px;
+    border-bottom: 2px solid #ddd;
+}
+=======
+
 /* media queries */
 /* xs < 768 */ 
 @media screen and (max-width: 767px) { 
