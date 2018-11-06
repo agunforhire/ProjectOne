@@ -3,38 +3,112 @@ font-family: 'Roboto Slab', serif;
 font-family: 'Righteous', cursive;
 font-family: 'Crete Round', serif;
 */
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
 #navbar {
-    background-color: #ff9021;
+    background-color: #ffb56a;
+    text-align: center;
+    height: 10vh;
+}
+
+.jumbotron {
+    background-image: url(../assets/images/hero7.jpg);
+    /* width: 100%vw; */
+    height: 600px;
 }
 
 #logo-text {
     font-family: 'Righteous', cursive;
-    font-size: 1.2em;
+    font-size: 20px;
+    color: 
 }
 
 #search-form {
     margin-right: 100px;
 }
 
-#hero-image {
-    position: relative;
-    
-}
-
 .hero-text {
     font-family: 'Roboto Slab', serif;
     position: absolute;
     left: 50%;
-    bottom: 20%;
+    bottom: 15%;
     color: white;
-    font-size: 2.2em;
+    font-size: 16px;
+
     transform: translate(-50%, -50%);
     text-shadow: 4px 4px black;
     line-height: 1em;
 }
 
 #give-review {
-    background-color: #e25200;
+    background-color: #ff5858;
     color: white;
     border: #a50000;
 }
+
+
+/* media queries */
+/* xs < 768 */ 
+@media screen and (max-width: 767px) { 
+    body, .navbar, .nav-link { font-size: 0.7em; 
+}
+    .jumbotron, #logo-text {
+        font-size: 2em;
+}
+    .hero-text {
+      font-size: .75em;
+      position: center;
+}
+    #give-review {
+      font-size: 0.7em;
+}}
+  
+
+/* sm */ 
+@media screen and (min-width: 768px) {
+    body, .navbar, .nav-link { font-size: 0.8em; 
+}
+    .jumbotron, #logo-text {
+        font-size: 2.5em;
+}
+    .hero-text {
+      font-size: .90em;
+      position: center;
+}
+    #give-review {
+       font-size: 0.8em;
+}}
+
+/* md */ 
+@media screen and (min-width: 992px) { 
+    body, .navbar, .nav-link { font-size: 0.9em; 
+} 
+    .jumbotron, #logo-text {
+      font-size: 2.75em;
+}
+   .hero-text {
+        font-size: 1.0em;
+        position: center;
+}
+    #give-review {
+        font-size: 0.9em;
+}} 
+  
+/* lg */ 
+@media screen and (min-width: 1200px) { 
+    body, .navbar, .nav-link { font-size: 1em; 
+} 
+    .jumbotron, #logo-text {
+      font-size: 3em;
+}
+    .hero-text {
+        font-size: 1.25em;
+        position: center;
+}
+    #give-review {
+        font-size: 1em;
+}}
