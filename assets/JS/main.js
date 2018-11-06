@@ -21,7 +21,8 @@ var yelpLoc = "";
 var term = "";
 var loc = "";
 var yelpCall = {};
-var result =
+
+$("#score-page").hide();
 
 $("#give-review").on("click", function (event) {
 
@@ -72,9 +73,3 @@ $("#give-review").on("click", function (event) {
   });
 
 });
-
-function renderResults() {
-
-  var result = response.data
-
-};
