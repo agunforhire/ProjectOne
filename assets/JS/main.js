@@ -24,6 +24,7 @@ var yelpCall = {};
 
 $("#score-page").hide();
 
+
 $("#give-review").on("click", function (event) {
 
   event.preventDefault();
