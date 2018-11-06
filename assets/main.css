@@ -8,6 +8,7 @@ body {
     width: 100vw;
     height: 100vh;
 }
+    
 
 #navbar {
     background-color: #ffb56a;
@@ -16,7 +17,7 @@ body {
 }
 
 .jumbotron {
-    background-image: url(../assets/images/hero7.jpg);
+    background-image: url(../assets/images/hero-tapas.jpg);
     /* width: 100%vw; */
     height: 600px;
 }
@@ -81,14 +82,90 @@ th, td {
     padding: 7px;
     border-bottom: 2px solid #ddd;
 }
-=======
+
+
+
+
+
+/* about us page */
+.logo {
+    width: 80px;
+    height: 50px;
+}
+
+#main-container {
+    padding-top: 100px;
+    padding-left: 60px;
+}
+
+h1, footer {
+    font-family: 'Righteous', cursive;
+}
+
+.members {
+    position: relative;
+    float: left;
+    width: 275px;
+    margin: 20px 0 25px;
+    overflow: auto;
+  }
+  
+  .members:nth-child(even) {
+    margin-right: 40px;
+  }
+  
+  .members img {
+    width: 100%;
+    border: 0 none;
+    opacity: 0.8;
+  }
+  
+  .members h3 {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    /* background: #2c4767; */
+    border-bottom: 0;
+  }
+  
+  .members-image {
+    float: left;
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    margin-right: 25px;
+  }
+
+footer {
+	background: white;
+	color: white;
+	padding: 30px 0;
+	clear: both;
+	border-top: 3px solid #ff5858;
+	color: black;
+	font-size: 12px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+
 
 /* media queries */
 /* xs < 768 */ 
 @media screen and (max-width: 767px) { 
     body, .navbar, .nav-link { font-size: 0.7em; 
 }
-    .jumbotron, #logo-text {
+    .jumbotron, #logo-text, h1 {
         font-size: 2em;
 }
     .hero-text {
@@ -104,7 +181,7 @@ th, td {
 @media screen and (min-width: 768px) {
     body, .navbar, .nav-link { font-size: 0.8em; 
 }
-    .jumbotron, #logo-text {
+    .jumbotron, #logo-text, h1 {
         font-size: 2.5em;
 }
     .hero-text {
