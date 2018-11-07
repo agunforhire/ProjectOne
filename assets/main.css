@@ -70,7 +70,7 @@ table, th, td {
     margin: auto;
     border-collapse: collapse;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 0.7em;
     table-layout: fixed;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -80,6 +80,10 @@ table, th, td {
 th, td {
     padding: 7px;
     border-bottom: 2px solid #ddd;
+}
+
+tr:hover {
+background-color: whitesmoke;
 }
 
 
