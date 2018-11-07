@@ -33,8 +33,6 @@ $("#give-review").on("click", function (event) {
   $("#score-page").show();
   
 
-  
-
   // Pulling inputs from fields
 
   var term = $("#restaurant").val().trim();
@@ -58,6 +56,7 @@ $("#give-review").on("click", function (event) {
     "crossDomain": true,
     "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?" + yelpTerm + "&" + yelpLoc,
     "method": "GET",
+    "dataType": "json",
     "headers": {
       "cache-control": "no-cache",
       "Postman-Token": postKey,
@@ -66,11 +65,35 @@ $("#give-review").on("click", function (event) {
   };
 
   // Calling Yelp and console Logging the response
+  
 
   $.ajax(yelpCall).done(function (response) {
     console.log(response);
+    
+    for (var i = 0; i < response.businesses.length; i++) {
 
-  
+      var businessName = response.businesses[i].name;
+      var businessCity = response.businesses[i].location.city;
+      var businessStreet = response.businesses[i].location.address1;
+      var businessRating = response.businesses[i].rating;
+    
+      console.log(businessName);
+      console.log(businessCity);
+      console.log(businessStreet);
+      console.log(businessRating);
+
+      tr = $('<tr/>');
+
+        tr.append("<td>" + businessName + "</td>");
+        tr.append("<td>" + businessCity + "</td>");
+        tr.append("<td>" + businessStreet + "</td>");
+        tr.append("<td>" + businessRating + "</td>");
+
+        $("#yelp-reviwews-body").append(tr);
+
+        
+    }
+
   });
 
 });
