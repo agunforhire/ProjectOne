@@ -5,22 +5,24 @@ var dataKey = config.fireKey;
 var postKey = config.postman
 
 // Initialize Firebase
-var config = {
-  apiKey: dataKey,
-  authDomain: "ucb-project-one.firebaseapp.com",
-  databaseURL: "https://ucb-project-one.firebaseio.com",
-  projectId: "ucb-project-one",
-  storageBucket: "ucb-project-one.appspot.com",
-  messagingSenderId: "191816644229"
-};
+  var fireDB = {
+    apiKey: dataKey,
+    authDomain: "a-super-sweet-project.firebaseapp.com",
+    databaseURL: "https://a-super-sweet-project.firebaseio.com",
+    projectId: "a-super-sweet-project",
+    storageBucket: "a-super-sweet-project.appspot.com",
+    messagingSenderId: "825679001195"
+  };
+firebase.initializeApp(fireDB);
 
-firebase.initializeApp(config);
 
 var yelpTerm = "";
 var yelpLoc = "";
 var term = "";
 var loc = "";
 var yelpCall = {};
+var yelpSearch = {};
+var database = firebase.database();
 
 $("#score-page").hide();
 
@@ -69,21 +71,25 @@ $("#give-review").on("click", function (event) {
 
   $.ajax(yelpCall).done(function (response) {
     console.log(response);
-    
+
+    yelpSearch = response;
+
     for (var i = 0; i < response.businesses.length; i++) {
 
       var businessName = response.businesses[i].name;
       var businessCity = response.businesses[i].location.city;
       var businessStreet = response.businesses[i].location.address1;
       var businessRating = response.businesses[i].rating;
+      
     
-      console.log(businessName);
-      console.log(businessCity);
-      console.log(businessStreet);
-      console.log(businessRating);
+      // console.log(businessName);
+      // console.log(businessCity);
+      // console.log(businessStreet);
+      // console.log(businessRating);
 
       tr = $('<tr/>');
-
+        tr.attr("id", i);
+        tr.addClass("result");
         tr.append("<td>" + businessName + "</td>");
         tr.append("<td>" + businessCity + "</td>");
         tr.append("<td>" + businessStreet + "</td>");
@@ -91,9 +97,22 @@ $("#give-review").on("click", function (event) {
 
         $("#yelp-reviwews-body").append(tr);
 
-        
     }
-
+    
   });
 
 });
+
+function getResult(){
+  
+  // console.log((this).id);
+  
+  var click = (this).id;
+
+  // console.log(yelpSearch.businesses[click]);
+  
+  database.ref().push(yelpSearch.businesses[click]);
+
+};
+
+$(document).on("click", ".result", getResult);
