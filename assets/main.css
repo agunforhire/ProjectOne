@@ -6,20 +6,21 @@ font-family: 'Crete Round', serif;
 
 body {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
 }
     
 
 #navbar {
     background-color: #ffb56a;
     text-align: center;
-    height: 10vh;
+    height: 15vh;
 }
 
 .jumbotron {
-    background-image: url(../assets/images/hero-tapas.jpg);
-    /* width: 100%vw; */
-    height: 600px;
+    background-image: url("./images/hero-spices.jpg");
+    padding-top: 15%;
+    width: 100vw;
+    height: 100vh;
 }
 
 #logo-text {
@@ -35,12 +36,11 @@ body {
     font-family: 'Roboto Slab', serif;
     position: absolute;
     left: 50%;
-    bottom: 15%;
+    bottom: 8%;
     color: white;
     font-size: 16px;
-
     transform: translate(-50%, -50%);
-    text-shadow: 4px 4px black;
+    text-shadow: 2px 2px black;
     line-height: 1em;
 }
 
@@ -74,7 +74,6 @@ table, th, td {
     table-layout: fixed;
     margin-top: 15px;
     margin-bottom: 15px;
-
 }
 
 th, td {
@@ -92,12 +91,21 @@ background-color: whitesmoke;
 
 /* about us page */
 .logo {
-    width: 80px;
-    height: 50px;
+    width: 120px;
+    height: 70px;
+}
+
+.btn-light {
+    background-color: #ff5858;
+    border: #a50000;
+}
+
+#back-to-main {
+    color: white;
 }
 
 #main-container {
-    padding-top: 100px;
+    padding-top: 120px;
     padding-left: 60px;
 }
 
@@ -147,16 +155,15 @@ h1, footer {
 
 footer {
 	background: white;
-	color: white;
 	padding: 30px 0;
 	clear: both;
-	border-top: 3px solid #ff5858;
+	border-top: 5px solid #ff5858;
 	color: black;
 	font-size: 12px;
     text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    position: relative;
+    /* left: 0;
+    bottom: 0; */
     width: 100%;
     
 }
