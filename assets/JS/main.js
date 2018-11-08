@@ -31,10 +31,12 @@ var yelpLoc = "";
 //Vars for making initial AJAX call and holding the respective responses -jw
 
 var yelpCall = {};
+var userChoice ={};
 var yelpResponse = {};
 var googleResponse;
 
 $("#score-page").hide();
+
 
 
 $("#give-review").on("click", function (event) {
@@ -43,6 +45,7 @@ $("#give-review").on("click", function (event) {
 
   $("#front-page").hide();
   $("#score-page").show();
+  $("#final-page").empty();
   
 
   // Pulling inputs from fields -jw
@@ -122,6 +125,8 @@ $(document).on("click", ".result", getResult);
 
 database.ref().limitToLast(1).on("child_added", function(snapshot){
   console.log("yelp snapshot: " + snapshot.val());
+  userChoice = snapshot.val();
+  console.log(userChoice);
   var lat = snapshot.val().coordinates.latitude;
   var lon = snapshot.val().coordinates.longitude;
   console.log("lat &lon" + lat + lon);
@@ -135,7 +140,32 @@ database.ref().limitToLast(1).on("child_added", function(snapshot){
   method: "GET"
   }).done(function(gresponse) {
     googleResponse = gresponse;
-  console.log("google api response:" + googleResponse.candidates[0].rating);
+  //console.log("google api response:" + googleResponse.candidates[0].rating);
+
+    var googleRating =  googleResponse.candidates[0].rating
+    var yelpRating = userChoice.rating;
+    var ourScore = ((googleRating + yelpRating) / 2);
+
+    console.log(yelpRating);
+    console.log(googleRating);
+    console.log(ourScore);
+
+    var y = $("<p>");
+    var g = $("<p>");
+    var s = $("<p>")
+
+    y.addClass("yelp-score");
+    y.append("Yelp Rating: " + yelpRating);
+
+    g.addClass("google-score");
+    g.append("Google Rating: " + googleRating);
+
+    s.addClass("our-score");
+    s.append("Soux Vide Rating: " + ourScore);
+
+
+    $("#final-page").append(y, g, s);
+
   });
   
 });
