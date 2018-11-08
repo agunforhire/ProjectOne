@@ -1,3 +1,5 @@
+//Pulling our API keys in from config file -jw
+
 var googleKey = config.googleKey;
 var yelpKey = config.yelpKey;
 var yelpClient = config.yelpClientID;
@@ -13,16 +15,24 @@ var postKey = config.postman;
     storageBucket: "a-super-sweet-project.appspot.com",
     messagingSenderId: "825679001195"
   };
+
 firebase.initializeApp(fireDB);
+var database = firebase.database();
 
-
-var yelpTerm = "";
-var yelpLoc = "";
+// Vars for holding the values pulled from user input -jw
 var term = "";
 var loc = "";
+var state = "";
+
+//Separate vars holding the encoded information for the AJAX call -jw
+var yelpTerm = "";
+var yelpLoc = "";
+
+//Vars for making initial AJAX call and holding the respective responses -jw
+
 var yelpCall = {};
-var yelpSearch = {};
-var database = firebase.database();
+var yelpResponse = {};
+var googleResponse;
 
 $("#score-page").hide();
 
@@ -35,23 +45,23 @@ $("#give-review").on("click", function (event) {
   $("#score-page").show();
   
 
-  // Pulling inputs from fields
+  // Pulling inputs from fields -jw
 
   var term = $("#restaurant").val().trim();
   var loc = $("#location").val().trim();
   var state = $("#state").val().trim();
 
-  // Adding search terms and encoding as Universal Resource Identifier
+  // Adding search terms and encoding as Universal Resource Identifier -jw
 
   var yelpTerm = "term=" + encodeURI(term);
   var yelpLoc = "location=" + encodeURI(loc)+"%20"+state;
 
-  //Console logging to make sure it works
+  //Console logging to make sure it works -jw
 
   console.log(yelpTerm);
   console.log(yelpLoc);
 
-  // Formatting the Yelp Ajax call settings as an object
+  // Formatting the Yelp Ajax call settings as an object -jw
 
   var yelpCall = {
     "async": true,
@@ -66,13 +76,13 @@ $("#give-review").on("click", function (event) {
     }
   };
 
-  // Calling Yelp and console Logging the response
+  // Calling Yelp and console Logging the response -jw
   
 
   $.ajax(yelpCall).done(function (response) {
     console.log(response);
 
-    yelpSearch = response;
+    yelpResponse = response;
 
     for (var i = 0; i < response.businesses.length; i++) {
 
@@ -80,12 +90,6 @@ $("#give-review").on("click", function (event) {
       var businessCity = response.businesses[i].location.city;
       var businessStreet = response.businesses[i].location.address1;
       var businessRating = response.businesses[i].rating;
-      
-    
-      // console.log(businessName);
-      // console.log(businessCity);
-      // console.log(businessStreet);
-      // console.log(businessRating);
 
       tr = $('<tr/>');
         tr.attr("id", i);
@@ -105,21 +109,17 @@ $("#give-review").on("click", function (event) {
 
 function getResult(){
   
-  // console.log((this).id);
-  
   var click = (this).id;
 
-  // console.log(yelpSearch.businesses[click]);
-  
-  database.ref().push(yelpSearch.businesses[click]);
+  database.ref().push(yelpResponse.businesses[click]).then ($("#yelp-reviwews-body").empty())
 
 };
 
 $(document).on("click", ".result", getResult);
 
 
-var googleResponse;
-// Google api get last added child from firebase and make google api call to get rating.
+// Google api get last added child from firebase and make google api call to get rating. -ap
+
 database.ref().limitToLast(1).on("child_added", function(snapshot){
   console.log("yelp snapshot: " + snapshot.val());
   var lat = snapshot.val().coordinates.latitude;
