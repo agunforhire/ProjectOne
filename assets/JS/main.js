@@ -2,7 +2,7 @@ var googleKey = config.googleKey;
 var yelpKey = config.yelpKey;
 var yelpClient = config.yelpClientID;
 var dataKey = config.fireKey;
-var postKey = config.postman
+var postKey = config.postman;
 
 // Initialize Firebase
   var fireDB = {
@@ -116,3 +116,27 @@ function getResult(){
 };
 
 $(document).on("click", ".result", getResult);
+
+
+var googleResponse;
+// Google api get last added child from firebase and make google api call to get rating.
+database.ref().limitToLast(1).on("child_added", function(snapshot){
+  console.log("yelp snapshot: " + snapshot.val());
+  var lat = snapshot.val().coordinates.latitude;
+  var lon = snapshot.val().coordinates.longitude;
+  console.log("lat &lon" + lat + lon);
+  var input = snapshot.val().name;
+  var placeInput = "input=" + encodeURI(input);
+  var location = "locationbias=point:" +lat+","+lon;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/findplacefromtext/json?" + placeInput + "&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&"+location+"&key="+googleKey
+  console.log("queryurl: " + queryURL);
+  $.ajax({
+  url: queryURL,
+  method: "GET"
+  }).done(function(gresponse) {
+    googleResponse = gresponse;
+  console.log("google api response:" + googleResponse.candidates[0].rating);
+  });
+  
+});
+
