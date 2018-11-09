@@ -3,143 +3,181 @@ font-family: 'Roboto Slab', serif;
 font-family: 'Righteous', cursive;
 font-family: 'Crete Round', serif;
 */
-
 body {
-    width: 100vw;
-    /* height: 100vh; */
-}
-    
-
-#navbar {
-    background-color: #ffb56a;
-    text-align: center;
-    height: 15vh;
-}
-
-.jumbotron {
-    background-image: url("./images/hero-spices.jpg");
-    padding-top: 15%;
     width: 100vw;
     height: 100vh;
 }
-
+#navbar {
+    background-color: #ffb56a;
+    text-align: center;
+    height: 15%;
+}
+/* full carousel slider on main page */
+.carousel-item {
+    height: 90vh;
+    min-height: 600px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 #logo-text {
     font-family: 'Righteous', cursive;
     font-size: 20px;
 }
-
 #search-form {
     margin-right: 100px;
 }
-
-.hero-text {
-    font-family: 'Roboto Slab', serif;
-    position: absolute;
-    left: 50%;
-    bottom: 8%;
-    color: white;
-    font-size: 16px;
-    transform: translate(-50%, -50%);
+h1 {
     text-shadow: 2px 2px black;
-    line-height: 1em;
 }
-
 #give-review {
     background-color: #ff5858;
     color: white;
     border: #a50000;
 }
-
-
+.carousel-caption {
+    bottom: 100px;
+    text-shadow: 5px 5px black;
+}
+#score-page {
+    background-image: url("images/hero-plates.jpg");
+    opacity: 0.8;
+}
 #score-page {
     background-color: #eeeeee;
-    width: 100%;
-    max-width: 820px;
-    height: auto;
+    width: 100vw;
+    /* max-width: 820px; */
+    height: 100vh;
     margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px;
     border: 2px solid #dddddd;
-    border-radius: 10%;
+    border-radius: 10%; */
     padding: 20px 20px 20px 20px;
     box-sizing: border-box;
     text-align: center;
 }
-
+/* #yelp-review-body {
+   padding-top: 120px;
+} */
+/* perfect: DO NOT CHANGE */
+.results-table {
+    margin-top: 5%;
+    max-width: 1000px;
+}
 table, th, td {
-    width: 80%;
+    padding-top: 120px;
+    width: 90%;
     margin: auto;
     border-collapse: collapse;
     text-align: center;
-    font-size: 0.6em;
+    font-size: 1em;
     table-layout: fixed;
     margin-bottom: 15px;
 }
-
 td {
     padding: 5px;
     border-bottom: 2px solid #ddd;
 }
-
 tr {
     background: #ffca70;
     border-radius: 6px;
-    margin-top: 10px;
+    margin-top: 50px;
 }
-
 tr:hover {
-background-color: whitesmoke;
-cursor: pointer;
-
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+/* yelp + google + soux vide average */
+/* egg shape is exactly in middle of page: NEEDS TO BE LOWER ON PAGE AND slightly BIGGER so it fits the words inside */
+#final-page {
+    margin-top: 10px;
+    display: block;
+    box-sizing: content-box;
+    float: none;
+    z-index: auto;
+    background-color: #ffffff;
+    max-width: 700px;
+    height: 400px;
+    position: static;
+    right: auto;
+    left: auto;
+    border-radius: 60% / 70% 70% 50% 50%;
+    margin: auto;
+}
+.imageRating {
+    width: 200px;
+    height: 185px;
 }
 
+.yelp-score, .google-score {
+    display: inline;
+    font-size: 1.2em;
+}
 
+.our-score {
+    font-size: 1.7em;
+    font-family: 'Crete Round', serif;
+}
 
-
-
-/* about us page */
+/* ************************* */
+/****** about us page ********/
+/* ************************* */
 .logo {
     width: 120px;
     height: 70px;
 }
-
 .btn-light {
     background-color: #ff5858;
     border: #a50000;
+    color: #ff5858;
 }
-
 #back-to-main {
     color: white;
 }
-
 #main-container {
+    margin: auto;
+    align-content: center;
+    max-width: 980px;
+    margin-top: 20px;
     padding-top: 120px;
     padding-left: 60px;
 }
-
-h1, footer {
+h1, h2, footer {
     font-family: 'Righteous', cursive;
 }
-
+h2 {
+    size: 24px;
+}
 .members {
     position: relative;
     float: left;
     width: 275px;
     margin: 20px 0 25px;
     overflow: auto;
-  }
+}
+
+.members:hover {
+    -webkit-filter: brightness(30%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
   
-  .members:nth-child(even) {
+.members:nth-child(even) {
     margin-right: 40px;
-  }
+}
   
-  .members img {
+.members img {
     width: 100%;
     border: 0 none;
     opacity: 0.8;
-  }
+}
   
-  .members h3 {
+.members h3 {
     position: absolute;
     bottom: 20px;
     width: 100%;
@@ -151,72 +189,59 @@ h1, footer {
     text-align: center;
     /* background: #2c4767; */
     border-bottom: 0;
-  }
+}
   
-  .members-image {
+.members-image {
     float: left;
     width: 200px;
     height: auto;
     margin-top: 10px;
     margin-right: 25px;
-  }
-
+}
 footer {
-	background: white;
-	height: 30px;
-	border-top: 5px solid #ff5858;
-	color: black;
-	font-size: 12px;
+    background: white;
+    height: 30px;
+    clear: both;
+    left: 0;
+    bottom: 0;
+    border-top: 5px solid #ff5858;
+    color: black;
+    padding: 20px;
+    font-size: 12px;
     text-align: center;
-    bottom: 0; 
     width: 100%;
+    position: fixed;
     
 }
-
-
-
-/* media queries */
-/* xs < 768 */ 
+/* ************************* */
+/******** media queries ******/
+/********** xs < 768 *********/
 @media screen and (max-width: 767px) { 
     body, .navbar, .nav-link { font-size: 0.7em; 
 }
-    .jumbotron, #logo-text, h1 {
-        font-size: 2em;
-}
-    .hero-text {
-      font-size: .75em;
-      position: center;
+    #logo-text, h1, h2 {
+        font-size: 2.25em;
 }
     #give-review {
       font-size: 0.7em;
 }}
   
-
 /* sm */ 
 @media screen and (min-width: 768px) {
     body, .navbar, .nav-link { font-size: 0.8em; 
 }
-    .jumbotron, #logo-text, h1 {
+    #logo-text, h1, h2 {
         font-size: 2.5em;
-}
-    .hero-text {
-      font-size: .90em;
-      position: center;
 }
     #give-review {
        font-size: 0.8em;
 }}
-
 /* md */ 
 @media screen and (min-width: 992px) { 
     body, .navbar, .nav-link { font-size: 0.9em; 
 } 
-    .jumbotron, #logo-text {
+    #logo-text, h1, h2 {
       font-size: 2.75em;
-}
-   .hero-text {
-        font-size: 1.0em;
-        position: center;
 }
     #give-review {
         font-size: 0.9em;
@@ -226,12 +251,8 @@ footer {
 @media screen and (min-width: 1200px) { 
     body, .navbar, .nav-link { font-size: 1em; 
 } 
-    .jumbotron, #logo-text {
+    #logo-text, h1, h2 {
       font-size: 3em;
-}
-    .hero-text {
-        font-size: 1.25em;
-        position: center;
 }
     #give-review {
         font-size: 1em;
