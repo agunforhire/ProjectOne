@@ -49,7 +49,7 @@ $("#give-review").on("click", function (event) {
   $("#front-page").hide();
   $("#final-page").hide();
   $("#score-page").show();
-  $("#yelp-reviwews-body").empty();
+  $("#yelp-reviews-body").empty();
   $("#final-page").empty();
   
 
@@ -110,7 +110,7 @@ $("#give-review").on("click", function (event) {
         tr.append("<td>" + businessStreet + "</td>");
         tr.append("<td>" + businessRating + "</td>");
 
-        $("#yelp-reviwews-body").append(tr);
+        $("#yelp-reviews-body").append(tr);
 
     }
 
@@ -122,7 +122,7 @@ function getResult(){
   
   var click = (this).id;
 
-  database.ref().push(yelpResponse.businesses[click]).then ($("#yelp-reviwews-body").empty())
+  database.ref().push(yelpResponse.businesses[click]).then ($("#yelp-reviews-body").empty())
 
 };
 
