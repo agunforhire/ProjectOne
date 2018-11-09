@@ -24,6 +24,10 @@ var term = "";
 var loc = "";
 var state = "";
 
+// Var for holding category selector
+
+var yelpCat = "categories=restaurants,%20all";
+
 //Separate vars holding the encoded information for the AJAX call -jw
 var yelpTerm = "";
 var yelpLoc = "";
@@ -69,7 +73,7 @@ $("#give-review").on("click", function (event) {
   var yelpCall = {
     "async": true,
     "crossDomain": true,
-    "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?" + yelpTerm + "&" + yelpLoc,
+    "url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?" + yelpTerm + "&" + yelpLoc + "&" + yelpCat,
     "method": "GET",
     "dataType": "json",
     "headers": {
@@ -87,6 +91,8 @@ $("#give-review").on("click", function (event) {
 
     yelpResponse = response;
 
+
+
     for (var i = 0; i < response.businesses.length; i++) {
 
       var businessName = response.businesses[i].name;
@@ -95,6 +101,7 @@ $("#give-review").on("click", function (event) {
       var businessRating = response.businesses[i].rating;
 
       tr = $('<tr/>');
+        tr.attr("title","Click a search result to continue")
         tr.attr("id", i);
         tr.addClass("result");
         tr.append("<td>" + businessName + "</td>");
@@ -105,7 +112,7 @@ $("#give-review").on("click", function (event) {
         $("#yelp-reviwews-body").append(tr);
 
     }
-    
+
   });
 
 });
