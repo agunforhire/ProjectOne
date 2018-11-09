@@ -42,13 +42,14 @@ var googleResponse;
 $("#score-page").hide();
 
 
-
 $("#give-review").on("click", function (event) {
 
   event.preventDefault();
 
   $("#front-page").hide();
+  $("#final-page").hide();
   $("#score-page").show();
+  $("#yelp-reviwews-body").empty();
   $("#final-page").empty();
   
 
@@ -91,7 +92,7 @@ $("#give-review").on("click", function (event) {
 
     yelpResponse = response;
 
-
+    //cycles through the top 20 yelp search results -bb
 
     for (var i = 0; i < response.businesses.length; i++) {
 
@@ -148,8 +149,12 @@ database.ref().limitToLast(1).on("child_added", function(snapshot){
   }).done(function(gresponse) {
     googleResponse = gresponse;
   //console.log("google api response:" + googleResponse.candidates[0].rating);
+    $("#final-page").show();
 
-    var googleRating =  googleResponse.candidates[0].rating
+    //vars which display after the restaurant is selected -bb
+
+    var placeName = userChoice.name;
+    var googleRating =  googleResponse.candidates[0].rating;
     var yelpRating = userChoice.rating;
     var ourScore = ((googleRating + yelpRating) / 2);
 
@@ -157,21 +162,36 @@ database.ref().limitToLast(1).on("child_added", function(snapshot){
     console.log(googleRating);
     console.log(ourScore);
 
+    var n = $("<h2>")
     var y = $("<p>");
     var g = $("<p>");
-    var s = $("<p>")
+    var s = $("<p>");
+
+    n.addClass("name-place")
+    n.append(placeName)
 
     y.addClass("yelp-score");
-    y.append("Yelp Rating: " + yelpRating);
+    y.append("Yelp Rating: " + yelpRating + " / 5 <br>");
 
     g.addClass("google-score");
-    g.append("Google Rating: " + googleRating);
+    g.append(" Google Rating: " + googleRating + " / 5");
 
     s.addClass("our-score");
-    s.append("Soux Vide Rating: " + ourScore);
+    s.append("Soux Vide Rating: " + ourScore + " / 5");
 
+    //shows an image which changes depending on the combined score -bb
 
-    $("#final-page").append(y, g, s);
+    if (ourScore >= 4.5 ) {
+      $('#final-page').prepend('<img class="imageRating" src="assets/images/choice.png" />');
+      } else if (ourScore <= 4.49 && ourScore >= 3.7) {
+        $('#final-page').prepend('<img class="imageRating" src="assets/images/good.png" />');
+      } else if (ourScore <= 3.69 && ourScore >= 2.5) {
+        $('#final-page').prepend('<img class="imageRating" src="assets/images/mediocre.png" />');
+      } else if (ourScore <= 2.49) {
+        $('#final-page').prepend('<img class="imageRating" src="assets/images/yikes.png" />');
+      }
+  
+    $("#final-page").append(n, y, g, s);
 
   });
   

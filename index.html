@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Soux Vide</title>
-
   <!-- google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Crete+Round|Righteous|Roboto+Slab" rel="stylesheet">
   <!-- bootstrap CDN -->
@@ -14,51 +12,27 @@
     crossorigin="anonymous">
   <!-- custom styles for this template -->
   <link rel="stylesheet" type="text/css" href="assets/main.css">
-
-
 </head>
-
 <body>
-
-  <!-- navigation -->
-  <nav class="container-fluid navbar navbar-expand-lg navbar-light fixed-top" id="navbar">
-
-    <!-- optional image can be placed before or after loog-text -->
+  <!-- hamburger navbar here -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar" #logo-text>
     <div class="container-fluid">
       <img src="./assets/images/souxvidelogoThin.png" class="logo">
-
-      <a class="navbar-brand" href="./aboutUs.html" id="logo-text">Soux Vide</a>
-
+      <a class="navbar-brand" id="logo-text" href="index.html">Soux Vide</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <!-- nav bar icon in perfect position, need to add elements in here -->
-      <div class="container-fluid collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="./aboutUs.html">About Us<span class="sr-only">(current)
-              </span>
-            </a>
+            <a class="nav-link" href="aboutUs.html">About Us<span class="sr-only">(current)</span></a>
           </li>
-
-
-          <div class="container-fluid dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-          </li>
-
         </ul>
-        <form class="form-inline my-2 my-lg-0" id="search-form">
-          <input class="form-control mr-sm-2" type="search" placeholder="Restaurant" id="restaurant" aria-label="Search">
-          <input class="form-control mr-sm-2" type="search" placeholder="Location" id="location" aria-label="Search">
-
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" id="restaurant" placeholder="Restaurants" aria-label="Search">
+          <input class="form-control mr-sm-2" type="search" id="location" placeholder="Location" aria-label="Search">
           <div class="form-group">
-            <label for="state" class="col-sm-2 control-label">State</label>
             <div class="col-sm-10">
               <select class="form-control" id="state" name="state">
                 <option value="">Choose State</option>
@@ -117,54 +91,72 @@
               </select>
             </div>
           </div>
-
           <button class="btn btn-outline-success my-2 my-sm-0" id="give-review" type="submit">Search</button>
         </form>
       </div>
   </nav>
-
+  <!-- hamburger navbar ends here -->
   <section id="container-fluid">
-    <!-- <div class="container-fluid"> -->
-    <div class="jumbotron">
-
-      <div id="front-page">
-
-        <p class="container-fluid hero-text">a restaurant review site that strikes perfect balance</p>
-      </div>
-
-      <div id="score-page">
-
-        <table>
-          <tbody id="yelp-reviwews-body"></tbody>
-        </table>
-
-        <div id="final-page">
-
-        </div>
-
-        <div id="meta-data">
-
-        </div>
-      </div>
-
-
-  </section>
-
-  <footer>
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12" id="footer-container">Copyright © 2018 Soux Vide, Inc. All Rights Reserved</div>
+    <div id="front-page">
+      <!-- scrolling carousel hero-text begins here-->
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" style="background-image: url(assets/images/hero-spices.jpg)">
+            <!-- <img class="d-block w-100" src="../ProjectOne/assets/images/hero-spices.jpg" alt="First slide"> -->
+            <div class="carousel-caption d-inline d-md-block">
+              <h1>a restaurant review site that strikes perfect balance</h1>
+            </div>
           </div>
-
+          <div class="carousel-item" style="background-image: url(assets/images/hero-italian.jpg)">
+            <!-- <img class="d-block w-100" src="../ProjectOne/assets/images/hero-italian2.jpg" alt="Second slide"> -->
+            <div class="carousel-caption d-inline d-md-block">
+              <h1>très soigné</h1>
+            </div>
+          </div>
+          <div class="carousel-item" style="background-image: url(assets/images/hero-tapas.jpg)">
+            <!-- <img class="d-block w-100" src="../ProjectOne/assets/images/hero-tapas.jpg" alt="Third slide"> -->
+            <div class="carousel-caption d-inline d-md-block">
+              <h1>we got you covered on date night ;)</h1>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-  </footer>
-
-
+    </div>
+    <!-- front-page closing div ends -->
+    <div id="score-page">
+      <table class="results-table">
+        <tbody id="yelp-reviwews-body"></tbody>
+      </table>
+      <div id="final-page">
+          <div id="rating-icon"></div>
+      </div>
+    </div>
+  </section>
+<!-- looks cleaner without this on main page -->
+  <!-- <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12" id="footer-container">Copyright © 2018 Soux Vide, Inc. All Rights Reserved</div>
+      </div>
+    </div>
+  </footer> -->
+  <!-- to run the scrolling carousel we need the following script -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
   <script type='text/javascript' src='assets/JS/config.js'></script>
   <script type='text/javascript' src='assets/JS/main.js'></script>
 </body>
-
 </html>
