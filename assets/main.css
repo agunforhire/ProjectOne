@@ -7,10 +7,13 @@ body {
     width: 100vw;
     height: 100vh;
 }
-#navbar {
+.navbar {
     background-color: #ffb56a;
     text-align: center;
     height: 15%;
+}
+.bg-light {
+    background-color: #ffb56a;
 }
 /* full carousel slider on main page */
 .carousel-item {
@@ -32,7 +35,7 @@ body {
 h1 {
     text-shadow: 2px 2px black;
 }
-#give-review {
+#give-review, #back-to-main {
     background-color: #ff5858;
     color: white;
     border: #a50000;
@@ -90,7 +93,6 @@ tr:hover {
     cursor: pointer;
 }
 /* yelp + google + soux vide average */
-/* egg shape is exactly in middle of page: NEEDS TO BE LOWER ON PAGE AND slightly BIGGER so it fits the words inside */
 #final-page {
     margin-top: 10px;
     display: block;
@@ -98,24 +100,27 @@ tr:hover {
     float: none;
     z-index: auto;
     background-color: #ffffff;
-    max-width: 700px;
-    height: 400px;
+    max-width: 500px;
+    height: 500px;
     position: static;
     right: auto;
     left: auto;
-    border-radius: 60% / 70% 70% 50% 50%;
+    border-radius: 50%;
     margin: auto;
+
+    /* width: 500px; */
+     
+      
+     
 }
 .imageRating {
     width: 200px;
     height: 185px;
 }
-
 .yelp-score, .google-score {
     display: inline;
     font-size: 1.2em;
 }
-
 .our-score {
     font-size: 1.7em;
     font-family: 'Crete Round', serif;
@@ -133,15 +138,12 @@ tr:hover {
     border: #a50000;
     color: #ff5858;
 }
-#back-to-main {
-    color: white;
-}
 #main-container {
     margin: auto;
     align-content: center;
     max-width: 980px;
     margin-top: 20px;
-    padding-top: 120px;
+    padding-top: 20px;
     padding-left: 60px;
 }
 h1, h2, footer {
@@ -157,7 +159,6 @@ h2 {
     margin: 20px 0 25px;
     overflow: auto;
 }
-
 .members:hover {
     -webkit-filter: brightness(30%);
     -webkit-transition: all 1s ease;
@@ -166,17 +167,14 @@ h2 {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
-  
 .members:nth-child(even) {
     margin-right: 40px;
 }
-  
 .members img {
     width: 100%;
     border: 0 none;
     opacity: 0.8;
 }
-  
 .members h3 {
     position: absolute;
     bottom: 20px;
@@ -190,7 +188,6 @@ h2 {
     /* background: #2c4767; */
     border-bottom: 0;
 }
-  
 .members-image {
     float: left;
     width: 200px;
@@ -225,7 +222,6 @@ footer {
     #give-review {
       font-size: 0.7em;
 }}
-  
 /* sm */ 
 @media screen and (min-width: 768px) {
     body, .navbar, .nav-link { font-size: 0.8em; 
