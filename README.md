@@ -8,8 +8,16 @@
 
 - If you answered yes to any of the above questions, then we have just the APP for you!
 
-## SOUX VIDE is a restaurant review site that strikes the perfect balance. The App is built on top of Firebase and utilizes the Yelp and Google APIs to provide a more accurate, efficient and user friendly restaurant ratin.
+## A Restaurant Review Site that Strikes the Perfect Balance 
 
-# We Got You Covered for Date Night
+- App is built on top of Firebase and utilizes the Yelp and Google APIs to provide a more accurate, efficient and user friendly restaurant rating.
 
-![Soux Vide](images/Sous-Vide.gif "Soux Vide")
+
+## We Got You Covered for Date Night
+
+![Soux Vide](assets/images/Sous-Vide.gif "Soux Vide")
+
+
+## License & Copyright
+
+&copy; Brett Byars, Ajay Paladugu, Susye Weng-Reeder, James Wilcox; Soux Vide 2018. UC Berkeley Coding Bootcamp.
